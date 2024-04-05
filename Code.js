@@ -1,5 +1,5 @@
 // Function to fetch lat and lon values and return the OpenStreetMap URL
-function getLatLonAndRedirect(spreadsheet) {
+function getLocation(spreadsheet) {
   var latRange = spreadsheet.getRangeByName("lat");
   var lonRange = spreadsheet.getRangeByName("lon");
 
@@ -18,7 +18,7 @@ function getLatLonAndRedirect(spreadsheet) {
 
   console.log(openMapsUrl);
 
-  return openMapsUrl;
+  return { lat, lon, url };
 }
 
 function doGet(e) {
@@ -55,11 +55,14 @@ function doGet(e) {
   }
 
   // Generate the OpenStreetMap URL
-  var redirectUrl = getLatLonAndRedirect(spreadsheet);
+  var location = getLocation(spreadsheet);
 
   // Use the HTML file, passing the URL to it
   var template = HtmlService.createTemplateFromFile("MapView");
-  template.redirectUrl = redirectUrl; // Pass the URL to the HTML template
+  // Pass variables to the HTML template
+  template.mapUrl = location.url;
+  template.lat = location.lat;
+  template.lon = location.lon;
   var htmlOutput = template.evaluate();
 
   return htmlOutput;
