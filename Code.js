@@ -1,3 +1,8 @@
+function convertTimestamp(timestamp) {
+  var date = new Date(timestamp);
+  return date.toGMTString();
+}
+
 function isWithinRadius(lat1, lon1, lat2, lon2, radius) {
   const R = 6371; // Earth’s radius in kilometers
   const dLat = toRadians(lat2 - lat1);
@@ -71,7 +76,7 @@ function doGet(e) {
     sheet.appendRow([
       params.lat,
       params.lon,
-      params.timestamp,
+      convertTimestamp(params.timestamp),
       params.hdop,
       params.altitude,
       params.speed,
