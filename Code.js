@@ -57,17 +57,10 @@ function doGet(e) {
   // Generate the OpenStreetMap URL
   var redirectUrl = getLatLonAndRedirect(spreadsheet);
 
-  // Create an HTML output that displays the URL as a clickable link with a custom page title
-  var htmlOutput = HtmlService.createHtmlOutput(
-    "<html>" +
-      "<head><title>View my location</title></head>" +
-      "<body>" +
-      "Click the link to view the location on OpenStreetMap: <a href='" +
-      redirectUrl +
-      "' target='_blank'>OpenStreetMap Link</a>" +
-      "</body>" +
-      "</html>"
-  );
+  // Use the HTML file, passing the URL to it
+  var template = HtmlService.createTemplateFromFile("MapView");
+  template.redirectUrl = redirectUrl; // Pass the URL to the HTML template
+  var htmlOutput = template.evaluate();
 
   return htmlOutput;
 }
