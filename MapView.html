@@ -23,7 +23,7 @@
       <div id="map"></div>
       <div class="mt-3 text-center">
         <!-- Add text-center class for centered text on all devices -->
-        <p>Click the button to view the location on OpenStreetMap:</p>
+        <p>Press the button to open the location on Openstreetmap.</p>
         <!-- Add Bootstrap button classes -->
         <a
           href="<?= mapUrl ?>"
@@ -31,7 +31,7 @@
           role="button"
           target="_blank"
         >
-          View my location
+          Show me the map! 🗺️
         </a>
       </div>
     </div>
@@ -53,7 +53,7 @@
           '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }).addTo(map);
       var marker = L.marker([<?= lat ?>, <?= lon ?>], { draggable: false }).addTo(map);
-      marker.bindPopup("<b>Hallo! 😁</b><br>Hier ben ik.").openPopup();
+      marker.bindPopup("<b>Hello/b><br>Here I am️️.").openPopup();
     </script>
   </body>
 </html>
