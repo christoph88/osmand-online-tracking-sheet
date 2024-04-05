@@ -25,8 +25,10 @@
         <!-- Add text-center class for centered text on all devices -->
         <p>Click the button to view the location on OpenStreetMap:</p>
         <!-- Add Bootstrap button classes -->
-        <button class="btn btn-primary btn-block btn-lg">
-          <!-- Add btn-block and btn-lg classes for full width and larger button on all devices -->
+        <button
+          class="btn btn-primary btn-block btn-lg"
+          onclick="window.location.href='<?= mapUrl ?>'"
+        >
           View my location
         </button>
       </div>
