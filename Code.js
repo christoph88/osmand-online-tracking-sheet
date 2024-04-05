@@ -18,7 +18,7 @@ function getLocation(spreadsheet) {
 
   console.log(openMapsUrl);
 
-  return { lat, lon, url };
+  return { lat: lat, lon: lon, url: openMapsUrl };
 }
 
 function doGet(e) {
