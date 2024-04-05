@@ -4,7 +4,9 @@
     <title>Find my location</title>
   </head>
   <body>
-    Click the link to view the location on OpenStreetMap:
-    <a href="<?= redirectUrl ?>" target="_blank">OpenStreetMap Link</a>
+    Click the button to view the location on OpenStreetMap:
+    <button onclick="window.open('<?= redirectUrl ?>', '_blank')">
+      View my location
+    </button>
   </body>
 </html>
